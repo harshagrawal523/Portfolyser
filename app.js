@@ -1,9 +1,12 @@
 const express = require('express');
 const mongoose=require('mongoose');
-const dotenv = require('dotenv')
-const passport = require('passport')
-const session = require('express-session')
-const MongoStore = require('connect-mongo')
+const dotenv = require('dotenv');
+const passport = require('passport');
+const session = require('express-session');
+const MongoStore = require('connect-mongo');
+const { spawn } = require('child_process');
+
+
 
 const morgan = require('morgan')
 
@@ -36,8 +39,14 @@ app.use(
      
     })
   )
+
+  
   const Routes = require("./routes/index.js");
   app.use("/", Routes);
+
+
+
+
 
 
 
