@@ -4,6 +4,9 @@ const multer = require("multer");
 var encoder = body.urlencoded();
 const introController=require('../controllers/maincontroller');
 var path = require('path');
+const { spawn } = require('child_process');
+var fs = require('fs');
+
 
 
 var profile = "hello";
@@ -30,6 +33,15 @@ router.get("/",(req,res)=>{
 });
 
 router.get("/final" , introController.getintroDetails);
+
+router.get("/render",(req,res)=>{
+  const childPython = spawn('python' , ['scraping.py']);
+  childPython.stdout.on('data',(data)=>{
+    fs.writeFileSync('public/uploads/hello.html',data);
+  });
+
+})
+
 router.get("/intro" , introController.addintroForm);
 router.post(
     "/",

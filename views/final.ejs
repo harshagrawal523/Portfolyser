@@ -1,6 +1,17 @@
-<% details.forEach((row,index) => { %>
-    <h2>Hello I am <%= row.name %> </h2>
-
-    <p><%= row.about %> </p>
-    <img src="<%= row.image %> " alt="" style="width: 20%;" >
-<% }) %> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <% details.forEach((row,index) => { %>
+        <h2>Hello I am <%= row.name %> </h2>
+    
+        <p><%= row.about %> </p>
+        <img src="<%= row.image %> " alt="" style="width: 20%;" >
+    <% }) %> 
+</body>
+</html>
