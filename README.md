@@ -23,6 +23,10 @@ Currently the website is bare-bones and we look to completing it as a finished p
 -  Beautifying the template
 -  Adding appropriate forms and buttons
 
+## Mentors
+[Harsh Agrawal](https://github.com/harshagrawal523)
+[Gunjan Dhanuka](https://github.com/GunjanDhanuka)
+
 ### Thanks
 The project is inspired by [Readme-Generator](https://github.com/rahuldkjain/github-profile-readme-generator) project.
 
