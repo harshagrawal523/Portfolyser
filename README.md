@@ -22,6 +22,7 @@ Currently the website is bare-bones and we look to completing it as a finished p
 -  UI improvements
 -  Beautifying the template
 -  Adding appropriate forms and buttons
+-  Incase you encounter any new error/issue please mention it
 
 ## Mentors
 - [Harsh Agrawal](https://github.com/harshagrawal523)
