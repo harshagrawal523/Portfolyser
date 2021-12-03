@@ -15,14 +15,26 @@ A portfolio website generator. You can enter your details and it will provide yo
 2. Clone the repository by typing in the Terminal `git clone https://github.com/< USERNAME >/Portfolyser.git`
 3. Navigate inside the directory `cd Portfolyser/`
 4. Enter `npm i` in the Terminal of the project directory.
-5. Enter `node app.js` to run the app.
-6. Open up your browser and visit the url `localhost:3100` to view the app.
+5. Go to config folder and create a `config.env` file.
+6. Enter `node app.js` to run the app.
+7. Open up your browser and visit the url `localhost:3100` to view the app.
+
+## Setting up `config.env` file
+
+        PORT = 3100
+        MONGO_URI= <your mongodb url for connection>
+
 
 ## Further improvements
 Currently the website is bare-bones and we look to completing it as a finished project through Code Peak. We welcome your contributions in:
 -  UI improvements
 -  Beautifying the template
 -  Adding appropriate forms and buttons
+-  Incase you encounter any new error/issue please mention it
+
+## Mentors
+- [Harsh Agrawal](https://github.com/harshagrawal523)
+- [Gunjan Dhanuka](https://github.com/GunjanDhanuka)
 
 ### Thanks
 The project is inspired by [Readme-Generator](https://github.com/rahuldkjain/github-profile-readme-generator) project.
