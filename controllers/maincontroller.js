@@ -1,9 +1,10 @@
 const IntroModel=require('../models/intromodel');
+const User = require('../models/user');
 
 exports.getintroDetails = async (req, res) => {
     try {
       const details = await IntroModel.find();
-      return res.render("final", { details });
+      return res.render("final", { details , user:req.user });
     } catch (error) {
       console.log(error.message);
     }
@@ -11,7 +12,7 @@ exports.getintroDetails = async (req, res) => {
 
   exports.addintroForm = async (req, res) => {
     try {
-      return res.render("intro");
+      return res.render("intro",{user:req.user});
     } catch (error) {
       console.log(error.message);
     }
@@ -19,8 +20,7 @@ exports.getintroDetails = async (req, res) => {
 
   exports.postintroDetails = async (req, res) => {
     try {
-      var { name , about } = req.body;
-      
+      var { name , about, email } = req.body;
   
       const image = '/uploads/' + req.file.filename;
       console.log(image)
@@ -28,6 +28,7 @@ exports.getintroDetails = async (req, res) => {
       const newintroDetail = await new IntroModel({
         name,
         about,
+        email,
         image,
       }).save();
      

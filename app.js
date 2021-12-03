@@ -7,6 +7,8 @@ const MongoStore = require('connect-mongo');
 const { spawn } = require('child_process');
 
 
+const flash = require('connect-flash');
+require('./config/passport')(passport)
 
 const morgan = require('morgan')
 
@@ -22,6 +24,7 @@ mongoose.connect(process.env.MONGO_URI,{
 
 app.use(express.urlencoded({extended:true}))
 app.use(express.static('public'))
+
 
 app.set('view engine','ejs');
 
@@ -39,9 +42,26 @@ app.use(
      
     })
   )
+  app.use(express.urlencoded({extended : false}));
+//express session
+app.use(session({
+    secret : 'secret',
+    resave : true,
+    saveUninitialized : true
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(flash());
+app.use((req,res,next)=> {
+    res.locals.success_msg = req.flash('success_msg');
+    res.locals.error_msg = req.flash('error_msg');
+    res.locals.error  = req.flash('error');
+    next();
+    })
 
   
   const Routes = require("./routes/index.js");
+  app.use('/users',require('./routes/users'));
   app.use("/", Routes);
 
 

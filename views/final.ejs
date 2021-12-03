@@ -1,17 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="One Page Website/Portfolio Template Which Is Too Minimal." />
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://fr0st1n.github.io/TooMinimal/">
+    <meta property="og:title" content="TooMinimal">
+    <meta property="og:description" content="One Page Website/Portfolio Template Which Is Too Minimal.">
+    <meta property="og:image" content="https://fr0st1n.github.io/TooMinimal/images/thumb.jpg">
+    <title>Too Minimal</title>
+    <link rel="shortcut icon" type="image/png" href="images/favicon.png" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+        crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Quicksand|Marck+Script">
+    <!-- <link rel="stylesheet" href="css/style.css"> -->
 </head>
+<style>
+   body {
+	font-family: 'Quicksand', serif;
+}
+
+.header {
+	text-align: center;
+	padding-top: 2%;
+}
+
+.username {
+	font-family: 'Marck Script', serif;
+	font-size: 60px;
+}
+
+.line {
+	border: 0;
+	height: 1px;
+	background-image: -webkit-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+	background-image: -moz-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+	background-image: -ms-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+	background-image: -o-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+}
+
+a:hover {
+	text-decoration: none;
+	color: grey;
+}
+
+a {
+	color: black;
+} 
+</style> 
 <body>
-    <% details.forEach((row,index) => { %>
-        <h2>Hello I am <%= row.name %> </h2>
-    
-        <p><%= row.about %> </p>
-        <img src="<%= row.image %> " alt="" style="width: 20%;" >
-    <% }) %> 
+
+    <div class="container">
+        <% details.forEach((row,index) => { %>
+            <% if(row.email == user.email){ %> 
+                <div class="header">
+                    <h1 class="username"><%= row.name %> </h1>
+                </div>
+            <% } %> 
+        <% }) %> 
+        <hr class="line">
+        <div class="row">
+            <div class="col-md-4">
+                <h2>About me</h2>
+                <% details.forEach((row,index) => { %>
+                    <% if(row.email == user.email){ %> 
+                <p><%= row.about %> </p>
+                <% } %> 
+                <% }) %> 
+                <h4>Likes:</h4>
+                <p>Your likes.</p>
+                <h4>Dislikes:</h4>
+                <p>Your Dislikes.</p>
+                <h2>Contact & Social Media</h2>
+                <p>
+                    <i class="fas fa-envelope"></i>
+                    <strong>Email: </strong><%= user.email %> 
+                    <br>
+                    <i class="fab fa-twitter-square"></i>
+                    <strong>Twitter: </strong><a href="https://twitter.com/twitter">@twitter</a>
+                    <br>
+                    <i class="fab fa-github-square"></i>
+                    <strong>Github: </strong><a href="https://github.com/">Github Account</a>
+                </p>
+            </div>
+            <div class="col-md-4">
+                <h2>Projects</h2>
+                <ul>
+                    <li><a href="https://github.com/airbnb/MagazineLayout" target="_blank" rel=”noopener noreferrer”>MagazineLayout</a></li>
+                    <li><a href="https://github.com/flutter/flutter" target="_blank" rel=”noopener noreferrer”>flutter</a></li>
+                    <li><a href="https://github.com/NVIDIAGameWorks/PhysX" target="_blank" rel=”noopener noreferrer”>PhysX</a></li>
+                    <li><a href="https://github.com/vuejs/vue" target="_blank" rel=”noopener noreferrer”>vue</a></li>
+                    <li><a href="https://github.com/tensorflow/tensorflow" target="_blank" rel=”noopener noreferrer”>tensorflow</a></li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <h2>Tweet Highlight</h2>
+                <blockquote class="twitter-tweet" data-theme="light">
+                    <p lang="en" dir="ltr">Sunsets don&#39;t get much better than this one over <a href="https://twitter.com/GrandTetonNPS?ref_src=twsrc%5Etfw">@GrandTetonNPS</a>.
+                        <a href="https://twitter.com/hashtag/nature?src=hash&amp;ref_src=twsrc%5Etfw">#nature</a> <a
+                            href="https://twitter.com/hashtag/sunset?src=hash&amp;ref_src=twsrc%5Etfw">#sunset</a> <a
+                            href="http://t.co/YuKy2rcjyU">pic.twitter.com/YuKy2rcjyU</a></p>&mdash; US Department of
+                    the Interior (@Interior) <a href="https://twitter.com/Interior/status/463440424141459456?ref_src=twsrc%5Etfw">May
+                        5, 2014</a>
+                </blockquote>
+                <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+            </div>
+        </div>
+    </div>
 </body>
+
 </html>

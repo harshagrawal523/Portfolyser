@@ -6,6 +6,8 @@ const introController=require('../controllers/maincontroller');
 var path = require('path');
 const { spawn } = require('child_process');
 var fs = require('fs');
+var passport = require('passport');
+const {ensureAuthenticated} = require("../config/auth.js")
 
 
 
@@ -28,16 +30,20 @@ router.use(body.urlencoded({
   }));
 
 
-router.get("/",(req,res)=>{
-    res.render('home');
+router.get("/",ensureAuthenticated,(req,res)=>{
+    res.render('home',{user:req.user});
 });
+router.get('/register', (req,res)=>{
+  res.render('register');
+})
 
 router.get("/final" , introController.getintroDetails);
 
 router.get("/render",(req,res)=>{
   const childPython = spawn('python' , ['scraping.py']);
   childPython.stdout.on('data',(data)=>{
-    fs.writeFileSync('public/uploads/hello.html',data);
+    // fs.writeFileSync('public/uploads/hello.html',data);
+    console.log(`${data}`);
   });
 
 })
