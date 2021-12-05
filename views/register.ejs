@@ -1,8 +1,176 @@
-<h1>Register</h1>
-<%- include ('./partials/messages') %>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins');
+  *{
+    margin: 0;
+    padding:0;
+  }
+  .head{
+    margin-bottom: 2rem;
+    font-size: 3rem;
+  }
+  span{
+    background-color: #c6e9e5;
+    color:#17b4a1;
+    font-size: 0.8rem;
+    padding: 0.7rem 1.1rem 0.7rem 1.1rem;
+    border-radius: 0.7rem;
+    font-weight: 600;
+  }
+  p{
+    margin-top: 2.2rem;
+    font-size: 1rem;
+    color: rgb(65, 65, 65);
+  }
+  .register-body{
+    background-color: #e6f6ff;
+    height: 100vh;
+    display: flex;
+    justify-content: space-evenly;
+    font-family: Poppins;
+  }
+  .register-left{
+    max-width: 25rem;
+    margin-top: 9rem;
+  }
+  .register-container{
+    margin-top: 4rem;
+    width: 25rem;
+    border-radius: 2rem;
+    background-color: rgb(255, 255, 255);
+    height:fit-content;
+    box-shadow: 1px 1px 20px 1px rgb(229, 236, 240);
+  }
+  .blue-feature{
+    color: rgb(1, 162, 255);
+    margin-top: 1rem;
+  }
+  .black-feature{
+    margin-top: 1rem;
+  }
+  .register-head{
+    text-align: center;
+    margin-top: 1.4rem;
+    color: rgb(49, 49, 49);
+  }
+  .register-head-def{
+    text-align: center;
+    margin: 0 2rem;
+    color: rgb(122, 122, 122);
+    margin-bottom: 0.5rem;
+  }
+  label{
+    margin-left: 2rem;
+    font-size: 0.8rem;
+  }
+  input{
+    margin-left: 2rem;
+    height: 2.5rem;
+    width:80%;
+    margin-bottom: 0.5rem;
+    border-radius: 0.8rem;
+    background-color: rgb(245, 245, 245);
+    border:none;
+    padding-left: 1rem;
+    border: 1px solid rgb(230, 230, 230);
+  }
+  .btn-cont{
+    text-align: center;
+  }
+  button{
+    height: 2.3rem;
+    width:8rem;
+    border-radius: 0.6rem;
+    background-color: rgb(153, 153, 153);
+    border: none;
+    font-size: 0.9rem;
+    color:white;
+    margin-top: 1rem;
+    cursor: pointer;
+  }
+  button:hover{
+    background-color: rgb(131, 195, 255);
+    color:rgb(61, 61, 61);
+  }
+  .login-link{
+    text-align: center;
+    margin-top:1rem;
+    margin-bottom: 1.5rem;
+  }
+  .msg-box{
+    min-height: 2rem;
+  }
+  @media screen and (max-width:1000px){
+     .register-container , .register-left{
+       margin: auto;
+       width: 23rem;
+     }
+  }
+  @media screen and (max-width:800px){
+     .register-body{
+       flex-direction: column;
+       height: fit-content;
+     }
+     .register-container , .register-left{
+       margin: auto;
+       width: 20rem;
+     }
+     .register-container{
+      margin-top: 4rem;
+      border-radius: 2rem;
+      background-color: rgb(255, 255, 255);
+      max-height: 37rem;
+      margin-bottom: 0rem;
+     }
+  }
+  .signin-with-google{
+    text-align: center;
+    text-decoration: none;
+    color: #17b4a1;
+  }
+  a{
+    color:#17b4a1;
+  }
+  .google{
+    margin-top: -1rem;
+    color:rgb(0, 143, 209);
+    font-weight: 600;
+    margin-bottom: 2rem;
+  }
+</style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="register-body">
+  <div class="register-left">
+    <h1 class="head">
+      Portfolyzer
+    </h1>
+    <span>OPTIMIZED · INTEGRATED · FUTURE READY</span>
+    <p>
+      A portfolio website generator. You can enter your details and it will provide you with ready-made HTML code for your very own portfolio page.
+    </p>
+    <h3 class="blue-feature">
+      With classic UI
+    </h3>
+    <h3 class="black-feature">
+      Let the Portfolyzer Do the Coding.
+    </h3>
+  </div>
+  <div class="register-container">
+      <h2 class="register-head">Register</h2>
+      <h5 class="register-head-def">Register now to get your own portfolio site withount writing a single line of code.</h5>
+<div class="msg-box">
+  <%- include ('./partials/messages') %>
+</div>
 <form action="/users/register" method="POST">
 <div>
-    <label for="name">Name</label>
+    <label for="name">Name</label><br/>
     <input
       type="name"
       name="name"
@@ -12,7 +180,7 @@
   
 </div>
 <div>
-    <label for="email">Email</label>
+    <label for="email">Email</label><br/>
     <input
       type="email"
       name="email"
@@ -21,7 +189,7 @@
     />
   </div>
   <div >
-    <label for="password">Password</label>
+    <label for="password">Password</label><br/>
     <input
       type="password"
       name="password"
@@ -30,7 +198,7 @@
     />
   </div>
   <div >
-    <label for="password2">Confirm Password</label>
+    <label for="password2">Confirm Password</label><br/>
     <input
       type="password"
       name="password2"
@@ -38,8 +206,15 @@
       value="<%= typeof password2 != 'undefined' ? password2 : '' %>"
     />
   </div>
-  <button type="submit" class="btn btn-primary btn-block">
+  <div class="btn-cont">
+    <button type="submit" class="btn btn-primary btn-block">
     Register
   </button>
+  </div>
 </form>
-<p >Have An Account? <a href="/users/login">Login</a></p>
+<p class="login-link">Have An Account? <a href="/users/login">Login</a></p>
+<a href="/users/google" class="signin-with-google"><p class="google">Sign in with Google</p></a>
+</div>
+</div>
+</body>
+</html>

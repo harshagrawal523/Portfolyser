@@ -10,6 +10,13 @@ router.get('/login',(req,res)=>{
 router.get('/register',(req,res)=>{
     res.render('register')
     })
+//Google
+router.get('/google', passport.authenticate('google', { scope : ['profile', 'email'] }));
+router.get('/google/callback',
+            passport.authenticate('google', {
+                    successRedirect : '/',
+                    failureRedirect : '/users/login'
+            }));
 //Register handle
 router.post('/login',(req,res,next)=>{
 passport.authenticate('local',{

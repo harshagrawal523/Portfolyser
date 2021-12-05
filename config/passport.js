@@ -1,9 +1,11 @@
 const User = require('../models/user');
 const LocalStrategy = require('passport-local').Strategy;
 const bcrypt = require('bcrypt');
+var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
+
 
 module.exports = function(passport){
-    passport.use(
+    passport.use('local',
         new LocalStrategy({usernameField: 'email'},(email,password,done)=>{
             //match user
             User.findOne({email:email})
@@ -32,4 +34,42 @@ module.exports = function(passport){
             done(err,user);
         })
     })
+    passport.use('google', new GoogleStrategy({
+
+        clientID        : process.env.clientId,
+        clientSecret    : process.env.clientSecret,
+        callbackURL     : 'http://127.0.0.1:3100/users/google/callback',
+
+    },
+    function(token, refreshToken, profile, done) {
+
+        // make the code asynchronous
+        // User.findOne won't fire until we have all our data back from Google
+        process.nextTick(function() {
+
+            // try to find the user based on their google id
+            User.findOne({ email : profile.emails[0].value }, function(err, user) {
+                if (err)
+                    return done(err);
+
+                if (user) {
+                    // if a user is found, log them in
+                    return done(null, user);
+                } else {
+                    // user not found, so created a new one
+                    const newUser = new User({
+                        name : profile.displayName,
+                        email : profile.emails[0].value,
+                        password : "somerandompasswordhere123^&^"
+                    });
+                    newUser.save()
+                    .then((value)=>{
+                        console.log(value)
+                        return done(null, user);
+                    });
+                }
+            });
+        });
+
+    }));
 }

@@ -1,16 +1,42 @@
+<style>
+      @import url('https://fonts.googleapis.com/css2?family=Poppins');
+      .err-msg{
+        background-color: bisque;
+        margin-left: 10%;
+        margin-right: 10%;;
+        border: 1px solid rgb(255, 209, 152);
+        padding: 0.05rem;
+        padding-left: 0.4rem;
+        text-align: center;
+        border-radius: 0.5rem;
+        font-size: 0.9rem;
+        margin-top: 0.4rem;
+      }
+      .err{
+        color:red;
+        border: 1px solid rgb(255, 123, 123);
+        background-color: rgb(255, 188, 188);
+        ;          
+      }
+      .success{
+        color:green;
+        border: 1px solid rgb(132, 255, 132);
+        background-color: rgb(190, 255, 190);
+      }
+</style>
 <% if(typeof errors!= 'undefined') { %>
     <%    errors.forEach(function(error){ %>
-            <p> <%= error.msg %></p>
+            <p class="err-msg err"> <%= error.msg %></p>
     <%    })        %>
     <% } %>
     
     <% if(success_msg!= '') { %>
-            <p><%=success_msg %> </p>
+            <p class="err-msg success"><%=success_msg %> </p>
           <% } %>
     
     <% if(error_msg != '') { %>
-          <p><%= error_msg %></p> 
+          <p class="err-msg err"><%= error_msg %></p> 
           <% } %> 
     <% if(error != '') { %>
-           <p><%= error %> </p>
+           <p class="err-msg err"><%= error %> </p>
           <% } %> 

@@ -48,7 +48,7 @@ router.get("/render",(req,res)=>{
 
 })
 
-router.get("/intro" , introController.addintroForm);
+router.get("/intro" ,ensureAuthenticated, introController.addintroForm);
 router.post(
     "/",
     upload_company_logo,
