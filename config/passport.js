@@ -34,47 +34,40 @@ module.exports = function(passport){
             done(err,user);
         })
     })
-    passport.use('google', new GoogleStrategy({
-
-        clientID        : configAuth.googleAuth.clientID,
-        clientSecret    : configAuth.googleAuth.clientSecret,
-        callbackURL     : configAuth.googleAuth.callbackURL,
-
-    },
-    function(token, refreshToken, profile, done) {
-
-        // make the code asynchronous
-        // User.findOne won't fire until we have all our data back from Google
-        process.nextTick(function() {
-
-            // try to find the user based on their google id
-            User.findOne({ 'google.id' : profile.id }, function(err, user) {
-                if (err)
-                    return done(err);
-
-                if (user) {
-
-                    // if a user is found, log them in
-                    return done(null, user);
-                } else {
-                    // if the user isnt in our database, create a new user
-                    var newUser          = new User();
-
-                    // set all of the relevant information
-                    newUser.id    = profile.id;
-                    newUser.token = token;
-                    newUser.name  = profile.displayName;
-                    newUser.email = profile.emails[0].value; // pull the first email
-
-                    // save the user
-                    newUser.save(function(err) {
-                        if (err)
-                            throw err;
-                        return done(null, newUser);
-                    });
-                }
-            });
-        });
-
-    }));
+    passport.use(
+        new GoogleStrategy(
+          {
+            clientID: configAuth.googleAuth.clientID,
+            clientSecret: configAuth.googleAuth.clientSecret,
+            callbackURL: '/auth/google/callback',
+          },
+          async (accessToken, refreshToken, profile, done) => {
+           
+            //get the user data from google 
+            const newUser = {
+              googleId: profile.id,
+              displayName: profile.displayName,
+              email: profile.emails[0].value,
+              
+            }
+    
+            try {
+              //find the user in our database 
+              let user = await User.findOne({ googleId: profile.id })
+    
+              if (user) {
+                //If user present in our database.
+                done(null, user)
+              } else {
+                // if user is not preset in our database save user data to database.
+                user = await User.create(newUser)
+                done(null, user)
+              }
+            } catch (err) {
+              console.error(err)
+            }
+          }
+        )
+      )
+    
 }

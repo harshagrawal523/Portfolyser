@@ -7,8 +7,8 @@ module.exports = {
     res.redirect('/users/login');
     },
     'googleAuth' : {
-        'clientID'      : 'your-client-ID',
-        'clientSecret'  : 'your-client-secret',
+        'clientID'      : '67681429585-40ftnlui91blejau42rl680m49qdh9u1.apps.googleusercontent.com',
+        'clientSecret'  : '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',
         'callbackURL'   : 'http://127.0.0.1:3100/users/google/callback'
     }
 }
