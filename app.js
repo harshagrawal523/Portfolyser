@@ -8,13 +8,14 @@ const { spawn } = require('child_process');
 
 
 const flash = require('connect-flash');
-require('./config/passport')(passport)
+
 
 const morgan = require('morgan')
 
 var app=express();
 const PORT = process.env.PORT||3100;
 dotenv.config({ path: './config/config.env' })
+require('./config/passport')(passport)
 
 mongoose.connect(process.env.MONGO_URI,{
     useNewUrlParser:true,
