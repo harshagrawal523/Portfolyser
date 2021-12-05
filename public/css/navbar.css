@@ -1,0 +1,90 @@
+/* Navbar css */
+
+.navbar {
+  width: 100%;
+  z-index: 100;
+  display: flex;
+  position: fixed;
+  background: #fff;
+  top: 0;
+  align-items: center;
+  justify-content: space-between;
+  height: 7rem;
+  padding: 0 4rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  justify-content: space-between;
+}
+
+.nav-links a {
+  color: var(--clr-black);
+  font-size: 12px;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+}
+
+.logo a {
+  color: #4c9e9e;
+  font-size: 3rem;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.menu {
+  display: flex;
+  gap: 1rem;
+}
+
+.menu li {
+  padding: 5px 14px;
+}
+
+.menu li a:hover {
+  color: #4c9e9e;
+  transition: 0.3s ease;
+}
+
+/* Responsive Navbar */
+
+input[type="checkbox"] {
+  display: none;
+}
+
+.hamburger {
+  display: none;
+  font-size: 24px;
+  user-select: none;
+}
+
+@media (max-width: 768px) {
+  .menu {
+    display: none;
+    position: absolute;
+    right: 0;
+    left: 0;
+    top: 7rem;
+    text-align: center;
+    background-color: #fff;
+    padding: 2rem 0;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.15);
+  }
+
+  .menu li:hover {
+    display: inline-block;
+    transition: 0.3s ease;
+  }
+
+  .menu li + li {
+    margin-top: 12px;
+  }
+
+  input[type="checkbox"]:checked ~ .menu {
+    display: block;
+  }
+
+  .hamburger {
+    display: block;
+    cursor: pointer;
+  }
+}

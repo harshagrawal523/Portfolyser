@@ -1,0 +1,58 @@
+/* Home page css */
+
+.hero-container {
+  max-width: 130rem;
+  padding: 0 max(4rem, 2rem);
+  margin: 18rem auto 5rem;
+}
+
+.hero-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5rem;
+}
+
+.hero-split {
+  flex-basis: 50%;
+  max-width: 55rem;
+  gap: 2rem;
+}
+
+.hero-text {
+  font-size: 3rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  line-height: 4.5rem;
+  letter-spacing: 0.2px;
+}
+
+.hero-sm-text {
+  font-size: 1.5rem;
+  margin: 2rem 0 4rem;
+}
+
+.hero-btn a {
+  padding: 10px 26px;
+  border-radius: 4rem;
+  font-size: 1.4rem;
+  background-color: #4c9e9e;
+  color: #fff;
+}
+
+.hero-split img {
+  width: 100%;
+  min-width: 35rem;
+}
+
+@media (min-width: 992px) {
+  .hero-wrapper {
+    flex-direction: row;
+    gap: 0;
+  }
+
+  .hero-split {
+    max-width: initial;
+  }
+}

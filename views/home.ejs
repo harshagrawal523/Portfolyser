@@ -1,3 +1,74 @@
-<h1><%= user.name %>  welcome to portfolyser </h1> <a href="/final">click here to see final website</a>
+<!-- <h1><%= user.name %>  welcome to portfolyser </h1> <a href="/final">click here to see final website</a>
 
-<a href="/intro">Click here to add introduction</a>
+<a href="/intro">Click here to add introduction</a> -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/navbar.css">
+    <link rel="stylesheet" href="/css/home.css">
+    <title>Portfolyser</title>
+</head>
+
+<style>
+    *,
+    ::after,
+    ::before {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    :root {
+        --clr-black: #353535;
+    }
+
+    html {
+        font-size: 62.5%;
+    }
+
+    body {
+        font-family: 'Inter', sans-serif;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    li {
+        list-style: none;
+    }
+</style>
+
+<body>
+    <%- include('navbar.ejs')%>
+        <div class="hero-container">
+            <div class="hero-wrapper">
+                <div class="hero-split">
+                    <div class="hero-text">
+                        Create beautiful portfolios with portfolyser
+                    </div>
+                    <div class="hero-sm-text">
+                        Showcase your work and accomplishments as a developer in a beautiful digital portfolio on
+                        portfolyser.
+                    </div>
+                    <div class="hero-btn">
+                        <a href="/intro">Get Started</a>
+                    </div>
+                </div>
+                <div class="hero-split">
+                    <div class="hero-img">
+                        <img src="/uploads/hero.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+</body>
+
+</html>
