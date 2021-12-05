@@ -23,6 +23,10 @@ A portfolio website generator. You can enter your details and it will provide yo
 
         PORT = 3100
         MONGO_URI= <your mongodb url for connection>
+        clientId= <your clientId>
+        clientSecret = <your clientSecret>
+        
+  If you don't have your own clientId's , you can text me on discord I will send you mine.
 
 
 ## Further improvements
