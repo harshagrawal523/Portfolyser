@@ -1,24 +1,151 @@
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+
+
+h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  width: 100%;
+  text-align: center;
+  margin: 50px;
+}
+
+.section {
+  width: 100%;
+  text-align: center;
+  align-content: center;
+  margin: 20px;
+}
+
+input {
+  border: none;
+  background-color: rgba(0,0,0,0);
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  height: 50px;
+  width: 60%;
+  font-size: 1.3rem;
+  padding: 10px;
+}
+
+::placeholder {
+  color: white;
+  opacity: 1;
+  font-weight: 400;
+  font-size: 1rem;
+  letter-spacing: 1px;
+}
+
+input:focus {
+  outline: none;
+}
+
+.card {
+  display: table;
+  margin: 0 auto;
+  width: 60%;
+  background: linear-gradient(to right, rgb(135, 78, 209), rgb(95, 46, 185), rgb(50, 45, 112));
+  height: 50px;
+  border-radius: 30px;
+  transition: 0.5s;
+}
+
+button {
+  margin-top: 30px;
+  border: none;
+  background-color: white;
+  height: 50px;
+  width: 60%;
+  border: rgb(50, 45, 112) 2px solid;
+  border-radius: 30px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 1.3rem;
+  color: rgb(50, 45, 112);
+  cursor: pointer;
+  letter-spacing: 1px;
+  transition: 0.5s;
+}
+
+button:hover {
+  box-shadow: 5px 5px 15px rgba(0,0,0,0.4);
+}
+
+a {
+  height: 50px;
+  width: 60%;
+  background-color: white;
+  text-decoration: none;
+  color: rgb(50, 45, 112);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 1.3rem;
+  border-radius: 30px;
+  transition: 0.5s;
+}
+
+hr {
+  margin-left: 10vw;
+  margin-right: 10vw;
+  margin-top: 60px;
+  margin-bottom: 60px;
+  background-color:rgb(50, 45, 112);
+}
+
+</style>
+
+
 <h1> Login </h1>
 <%- include ('./partials/messages') %>
+
 <form action="/users/login" method="POST">
-<div>
-<label for="email">Email</label>
-<input
-type="email"
-name="email"
-placeholder="Enter Email"
-/>
-</div>
-<div>
-    <label for="password">Password</label>
-    <input
-      type="password"
-      name="password"
-      placeholder="Enter Password"
-    />
-  
-</div>
-<button type="submit" class="btn btn-primary btn-block">Login</button>
-<a href="/users/google">Sign in with Google</a>
-   
+  <div id="email-div" class="section">
+    <div id="email-card" class="card">
+      <input id="email-input"
+        type="email"
+        name="email"
+        placeholder="  Enter Email"
+      />
+    </div>
+  </div>
+  <div id="password-div" class="section">
+    <div id="password-card" class="card">
+      <input id="password-input"
+        type="password"
+        name="password"
+        placeholder="  Enter Password"
+      />
+    </div>
+  </div>
+  <div class="section">
+    <button type="submit" class="btn btn-primary btn-block">LOGIN</button>
+  </div>
 </form>
+
+<hr>
+
+<div class="section">
+  <a href="/users/google">Sign in with <span style="font-size: 1.6rem;"><span style="color: #4285F4">G</span><span style="color: #DB4437">o</span><span style="color: #F4B400">o</span><span style="color: #4285F4">g</span><span style="color: #0F9D58">l</span><span style="color: #DB4437">e</span></span></a>
+</div>
+
+
+<script>
+
+  document.getElementById("email-input").addEventListener('focusin', () => {
+    document.getElementById("email-card").style.transform = "scale(1.05)";
+  })
+
+  document.getElementById("email-input").addEventListener('focusout', () => {
+    document.getElementById("email-card").style.transform = "scale(1)";
+  })
+
+  document.getElementById("password-input").addEventListener('focusin', () => {
+    document.getElementById("password-card").style.transform = "scale(1.05)";
+  })
+
+  document.getElementById("password-input").addEventListener('focusout', () => {
+    document.getElementById("password-card").style.transform = "scale(1)";
+  })
+
+</script>
