@@ -34,40 +34,42 @@ module.exports = function(passport){
             done(err,user);
         })
     })
-    passport.use(
-        new GoogleStrategy(
-          {
-            clientID: configAuth.googleAuth.clientID,
-            clientSecret: configAuth.googleAuth.clientSecret,
-            callbackURL: '/auth/google/callback',
-          },
-          async (accessToken, refreshToken, profile, done) => {
-           
-            //get the user data from google 
-            const newUser = {
-              googleId: profile.id,
-              displayName: profile.displayName,
-              email: profile.emails[0].value,
-              
-            }
-    
-            try {
-              //find the user in our database 
-              let user = await User.findOne({ googleId: profile.id })
-    
-              if (user) {
-                //If user present in our database.
-                done(null, user)
-              } else {
-                // if user is not preset in our database save user data to database.
-                user = await User.create(newUser)
-                done(null, user)
-              }
-            } catch (err) {
-              console.error(err)
-            }
-          }
-        )
-      )
-    
+    passport.use('google', new GoogleStrategy({
+
+        clientID        : configAuth.googleAuth.clientID,
+        clientSecret    : configAuth.googleAuth.clientSecret,
+        callbackURL     : configAuth.googleAuth.callbackURL,
+
+    },
+    function(token, refreshToken, profile, done) {
+
+        // make the code asynchronous
+        // User.findOne won't fire until we have all our data back from Google
+        process.nextTick(function() {
+
+            // try to find the user based on their google id
+            User.findOne({ email : profile.emails[0].value }, function(err, user) {
+                if (err)
+                    return done(err);
+
+                if (user) {
+                    // if a user is found, log them in
+                    return done(null, user);
+                } else {
+                    // user not found, so created a new one
+                    const newUser = new User({
+                        name : profile.displayName,
+                        email : profile.emails[0].value,
+                        password : "somerandompasswordhere123^&^"
+                    });
+                    newUser.save()
+                    .then((value)=>{
+                        console.log(value)
+                        return done(null, user);
+                    });
+                }
+            });
+        });
+
+    }));
 }
