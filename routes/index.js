@@ -39,14 +39,7 @@ router.get('/register', (req,res)=>{
 
 router.get("/final" , introController.getintroDetails);
 
-router.get("/render",(req,res)=>{
-  const childPython = spawn('python' , ['scraping.py']);
-  childPython.stdout.on('data',(data)=>{
-    // fs.writeFileSync('public/uploads/hello.html',data);
-    console.log(`${data}`);
-  });
-
-})
+router.get("/render", introController.getRender);
 
 router.get("/intro" ,ensureAuthenticated, introController.addintroForm);
 router.post(

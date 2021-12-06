@@ -4,7 +4,18 @@ const User = require('../models/user');
 exports.getintroDetails = async (req, res) => {
     try {
       const details = await IntroModel.find();
-      return res.render("final", { details , user:req.user });
+      return res.render("final", { details , user:req.user});
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+
+  exports.getRender = async (req, res) => {
+    try {
+      const details = await IntroModel.find();
+      return res.render("final", { details , user:req.user }, (err, html) => {
+        res.status(200).send('<textarea style="height:100%; width:100%; font-family: Monospace; font-size:10px; border:0;" rows="30" disabled >' + html + "</textarea>");
+      });
     } catch (error) {
       console.log(error.message);
     }
