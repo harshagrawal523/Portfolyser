@@ -1,10 +1,28 @@
 const IntroModel=require('../models/intromodel');
 const User = require('../models/user');
-
+const fs = require('fs');
 exports.getintroDetails = async (req, res) => {
     try {
       const details = await IntroModel.find();
-      return res.render("final", { details , user:req.user });
+      return res.render("final", { details , user:req.user});
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+
+  exports.getRender = async (req, res) => {
+    try {
+      const details = await IntroModel.find();
+      return res.render("final", { details , user:req.user }, (err, html) => {
+        const content =html
+        fs.writeFile('./public/hello.html',content,err=>{
+          if(err){
+            console.log(err);
+            return
+          }
+          res.redirect('/')
+        })
+      });
     } catch (error) {
       console.log(error.message);
     }
