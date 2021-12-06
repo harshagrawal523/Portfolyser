@@ -216,12 +216,18 @@
                 </div>
             </div>
             <div class="nav-user">
+                <% if(user){ %> 
+                    <div class="nav-link">
+                        <a href="/users/logout">Logout</a>
+                    </div>
+                <% }else{ %> 
                 <div class="nav-link">
                     <a href="/login">Login</a>
                 </div>
                 <div class="nav-link">
                     <a href="/register">Sign Up</a>
                 </div>
+                <% } %> 
             </div>
         </div>
         <div class="media-nav">
@@ -252,7 +258,8 @@
         <div class="hero-wrapper">
             <div class="hero-split">
                 <h1 class="head">
-                    Portfolyzer
+
+                    Welcome <%= user.name %> ,
                 </h1>
                 <p>
                     Showcase your skills and achievements in your portfolio using Portfolyzer
