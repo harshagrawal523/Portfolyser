@@ -1,5 +1,312 @@
-<h1><%= user.name %>  welcome to portfolyser </h1> <a href="/final">click here to see final website</a>
+<!-- <h1>
+    <%= user.name %> welcome to portfolyser
+</h1> <a href="/final">click here to see final website</a>
 
 <a href="/users/login">Login</a>
 / <a href="/register">Register</a>
-<a href="/intro">Click here to add introduction</a> 
+<a href="/intro">Click here to add introduction</a> -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolyzer</title>
+    <link rel="stylesheet" href="/css/navbar.css">
+</head>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+    *,
+    :after,
+    :before {
+        margin: 0;
+        padding: 0;
+    }
+
+    html {
+        font-size: 62.5%;
+    }
+
+    :root {
+        --clr-black: #010334;
+    }
+
+    body {
+        background-color: #f5fbff;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    li {
+        list-style: none;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    /* Hero */
+
+    .head {
+        margin-bottom: 2.5rem;
+        font-size: 4.8rem;
+        color: var(--clr-black);
+    }
+
+    p {
+        font-size: 16px;
+        color: #414141;
+    }
+
+    .blue-feature {
+        color: #01a2ff;
+        margin-top: 1.6rem;
+        font-size: 1.6rem;
+    }
+
+    .black-feature {
+        color: var(--clr-black);
+        margin-top: 1.6rem;
+        font-size: 1.6rem;
+    }
+
+    .hero-container {
+        padding: 0 max(4rem, 2vw);
+        margin: 18rem auto 0;
+        min-height: calc(100vh - 18rem);
+    }
+
+    .hero-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        flex-direction: row;
+    }
+
+    .hero-split {
+        flex-basis: 50%;
+        max-width: 40rem;
+        padding: 2rem;
+    }
+
+    .hero-split img {
+        width: 100%;
+    }
+
+    .hero-btn {
+        margin-top: 3rem;
+        width: 100%;
+    }
+
+    .hero-btn a {
+        width: 100%;
+        padding: 11.2px 25px 10.8px;
+        border-radius: 4rem;
+        font-size: 1.4rem;
+        background-color: #c6e9e5;
+        color: #4c9e9e;
+        font-weight: 500;
+    }
+
+
+    @media (max-width: 992px) {
+        .hero-wrapper {
+            flex-direction: column;
+        }
+
+        .blue-feature,
+        .black-feature,
+        .hero-btn,
+        .head {
+            text-align: center;
+        }
+
+        .hero-img {
+            margin-top: 3rem;
+        }
+    }
+
+    /* Working steps */
+
+    .working-container {
+        padding: 5rem max(4rem, 2vw);
+        background: #fff;
+    }
+
+    .working-wrapper {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+    .working-split {
+        padding: 2rem 3rem;
+        flex-basis: 50%;
+        max-width: 45rem;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .working-heading-lg {
+        font-size: 3rem;
+        font-weight: 600;
+        line-height: 4rem;
+        text-align: center;
+        color: var(--clr-black);
+        text-transform: capitalize;
+    }
+
+    .working-heading-sm {
+        color: var(--clr-black);
+        text-align: center;
+        font-size: 1.5rem;
+        margin-top: 1rem;
+    }
+
+    .step {
+        font-size: 1.4rem;
+        letter-spacing: 0.1px;
+        margin: 0.5rem 0;
+        counter-increment: step;
+    }
+
+    .step::before {
+        color: #2156fa;
+        content: counter(step) ". ";
+        display: inline-block;
+        font-weight: 500;
+        height: 20px;
+        line-height: 20px;
+        margin-left: -28px;
+        margin-right: 8px;
+        text-align: center;
+        width: 20px;
+    }
+
+    @media(max-width: 1000px) {
+        .working-wrapper {
+            flex-direction: column;
+        }
+
+        .step {
+            margin-left: 1rem;
+        }
+    }
+</style>
+
+<body>
+    <div class="header">
+        <div class="navbar">
+            <div class="logo">
+                <a href="/"><img src="/uploads/logo.png" alt=""></a>
+            </div>
+            <div id="menu-icon" class="menu-icon"><img id="ham-img" src="uploads/icon-hamburger.svg" alt=""></div>
+            <div class="nav-links">
+                <div class="nav-link">
+                    <a href="/">Home</a>
+                </div>
+                <div class="nav-link">
+                    <a href="/about">About</span>
+                </div>
+                <div class="nav-link">
+                    <a href="/contact">Contact</a>
+                </div>
+            </div>
+            <div class="nav-user">
+                <div class="nav-link">
+                    <a href="/login">Login</a>
+                </div>
+                <div class="nav-link">
+                    <a href="/register">Sign Up</a>
+                </div>
+            </div>
+        </div>
+        <div class="media-nav">
+            <div class="media-nav-links">
+                <div class="nav-link">
+                    <a href="/">Home</a>
+                </div>
+                <div class="nav-link">
+                    <a href="/about">About</span>
+                </div>
+                <div class="nav-link">
+                    <a href="/contact">Contact</a>
+                </div>
+            </div>
+            <div class="line"></div>
+            <div class="media-nav-user">
+                <div class="nav-link">
+                    <a href="/login">Login</a>
+                </div>
+                <div class="nav-link">
+                    <a href="/register">Sign Up</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="hero-container">
+        <div class="hero-wrapper">
+            <div class="hero-split">
+                <h1 class="head">
+                    Portfolyzer
+                </h1>
+                <p>
+                    Showcase your skills and achievements in your portfolio using Portfolyzer
+                </p>
+                <h3 class="blue-feature">
+                    With classic UI
+                </h3>
+                <h3 class="black-feature">
+                    Let the Portfolyzer Do the Coding.
+                </h3>
+                <div class="hero-btn">
+                    <a href="/intro">Get Started</a>
+                </div>
+            </div>
+            <div class="hero-split">
+                <div class="hero-img">
+                    <img src="/uploads/hero_img.svg" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="working-container">
+        <div class="working-wrapper">
+            <div class="working-split">
+                <div class="working-heading-lg">
+                    How to make your portfolio using portfolyser
+                </div>
+                <div class="working-heading-sm">You can generate your portfolio in 3 easy steps</div>
+            </div>
+            <div class="working-split">
+                <div class="step">Sign up or log in with your email or google account.</div>
+                <div class="step">Tell us a little about you and your work. Answer a few questions and portfolyzer will
+                    create the website for you.
+                </div>
+                <div class="step">Add your images by pulling them around
+                    the web or locally.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const ham = document.getElementById('menu-icon');
+        const hamImage = document.querySelector('#ham-img')
+        const mediaNav = document.querySelector('.media-nav');
+        let dropDown = 0;
+        const toggleMenu = () => {
+            dropDown = !dropDown;
+            dropDown ? mediaNav.style.display = 'flex' : mediaNav.style.display = 'none';
+            dropDown ? hamImage.setAttribute('src', 'uploads/icon-close.svg') : hamImage.setAttribute('src', 'uploads/icon-hamburger.svg')
+        }
+        ham.addEventListener('click', toggleMenu);
+    </script>
+</body>
+
+</html>
