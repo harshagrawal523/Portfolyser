@@ -1,4 +1,5 @@
 const IntroModel=require('../models/intromodel');
+const User = require('../models/user');
 const fs = require('fs');
 exports.getintroDetails = async (req, res) => {
     try {
