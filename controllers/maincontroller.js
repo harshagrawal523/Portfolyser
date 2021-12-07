@@ -17,17 +17,24 @@ exports.getintroDetails = async (req, res) => {
 
   exports.getRender = async (req, res) => {
     try {
-      const details = await IntroModel.find();
-      return res.render("final", { details , user:req.user }, (err, html) => {
-        const content =html
-        fs.writeFile('./public/hello.html',content,err=>{
-          if(err){
-            console.log(err);
-            return
-          }
-          res.redirect('/')
-        })
+      IntroModel.findOne({ email: req.user.email}, function (err, doc){
+        if (doc) {
+          return res.render("final", { detail: doc , user:req.user }, (err, html) => {
+            const content =html
+            fs.writeFile('./public/hello.html',content,err=>{
+              if(err){
+                console.log(err);
+                return
+              }
+              res.redirect('/')
+            })
+          });
+        } else {
+          res.redirect("/intro");
+        }
       });
+      const details = await IntroModel.find();
+      
     } catch (error) {
       console.log(error.message);
     }
