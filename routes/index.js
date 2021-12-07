@@ -1,8 +1,12 @@
 const router = require('express').Router();
 const body = require('body-parser');
 const multer = require("multer");
+var encoder = body.urlencoded();
 const introController=require('../controllers/maincontroller');
 var path = require('path');
+const { spawn } = require('child_process');
+var fs = require('fs');
+var passport = require('passport');
 const {ensureAuthenticated} = require("../config/auth.js")
 
 
