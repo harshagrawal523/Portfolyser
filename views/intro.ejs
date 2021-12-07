@@ -1,18 +1,61 @@
-<h3>Introduction Form</h3>
+<h3>
+    <% if (edit) { %>
+        Edit your intro
+    <% } else { %>
+        Add your intro
+    <% } %>
+</h3>
 <form action="/" method="POST" enctype="multipart/form-data">
 
     <div class="new_user">
         <div class="form-group">
             <label for="name" class="text-light">Name</label>
-            <input type="text" name="name" value="" placeholder="Google">
+            <input type="text" name="name" placeholder="Google"
+
+            <% if (edit) {%>
+                value="<%= detail.name %>"
+            <%} else {%>
+                value=""
+            <% } %>
+            
+            >
         </div>
         <div class="form-group">
             <label for="about" class="text-light">about</label>
-            <input type="about" name="about" value="" placeholder="short info">
+            <input type="about" name="about" placeholder="short info"
+            
+            <% if (edit) {%>
+                value="<%= detail.about %>"
+            <%} else {%>
+                value=""
+            <% } %>
+            
+            
+            >
         </div>
         <div class="form-group">
-            <label for="email" class="text-light">email</label>
-            <input type="email" name="email" value="" placeholder="email">
+            <label for="emails" class="text-light">email (use comma as separator to add multiple)</label>
+            <input type="emails" name="emails" placeholder="email"
+            
+            <% if (edit) {%>
+                value="<%= detail.emails %>"
+            <%} else {%>
+                value=""
+            <% } %>
+
+            >
+        </div>
+        <div class="form-group">
+            <label for="projects" class="text-light">project link (use comma as separator to add links)</label>
+            <input type="projects" name="projects" placeholder="project link"
+            
+            <% if (edit) {%>
+                value="<%= detail.projects %>"
+            <%} else {%>
+                value=""
+            <% } %>
+
+            >
         </div>
         <div class="form-group">
             <label for="image" class="text-light">Your Image</label>
