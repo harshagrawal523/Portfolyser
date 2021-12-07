@@ -10,8 +10,6 @@ exports.getintroDetails = async (req, res) => {
           res.redirect("/intro");
         }
       });
-      
-      return res.render("final", { detail , user:req.user});
     } catch (error) {
       console.log(error.message);
     }
