@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>Document</title>
+</head>
+<style>
+    /* just basic temporary styling...remove it and write good css */
+    form {
+        padding: 20px;
+    }
+
+    .form-elements {
+        margin-top: 10px;
+    }
+
+    .form-group {
+        margin-left: 13px;
+    }
+
+    .work_wrapper {
+        margin-bottom: 20px;
+    }
+
+    button {
+        margin-top: 10px;
+    }
+</style>
+
+<body>
+    <form class="form-inline" id="work-form" method="POST" action="/edu">
+        <h3>Work and Experience</h3>
+        <div class="work-wrapper">
+            <div>
+                <div class="form-group">
+                    <label for="company">Company</label>
+                    <input required type="text" class="form-control" placeholder="Company Name" name="company[]">
+                </div>
+                <div class="form-group">
+                    <label for="work_description">Work Description</label>
+                    <input required type="text" class="form-control" placeholder="Work Description"
+                        name="work_description[]">
+                </div>
+                <div class="form-group">
+                    <label for="work_start">Work Start</label>
+                    <input required type="date" class="form-control" placeholder="Work Start" name="work_start[]">
+                    <label for="work_end">Work End</label>
+                    <input type="date" class="form-control" placeholder="Work End" name="work_end[]">
+                </div>
+                <div class="form-group">
+                    <a href="javascript:void(0);" class="add-work-button" title="Add field">+ Add More</a>
+                </div>
+            </div>
+        </div>
+        <p>* In case of no work end date, leave it empty</p>
+
+        <h3>Education</h3>
+        <div class="edu-wrapper">
+            <div>
+                <div class="form-group">
+                    <label for="university">University</label>
+                    <input required type="text" class="form-control" placeholder="University Name" name="university[]">
+                </div>
+                <div class="form-group">
+                    <label for="">Degree</label>
+                    <select required name="degree[]" class="form-control">
+                        <option value="">--Select Degree--</option>
+                        <option value="highschool">High School</option>
+                        <option value="btech">BTech</option>
+                        <option value="mtech">MTech</option>
+                        <option value="phd">Phd</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="percentage">Percentage</label>
+                    <input required type="number" max="100.00" step=".01" class="form-control" placeholder="Percentage"
+                        name="percentage[]">
+                </div>
+                <div class="form-group">
+                    <label for="degree_start">Degree Start</label>
+                    <input required type="date" class="form-control" placeholder="Degree Start" name="degree_start[]">
+                    <label for="degree_end">Degree End</label>
+                    <input required type="date" class="form-control" placeholder="Degree End" name="degree_end[]">
+                </div>
+                <div class="form-group">
+                    <a href="javascript:void(0);" class="add-edu-button" title="Add field">+ Add More</a>
+                </div>
+            </div>
+        </div>
+        <button type="submit">Save</button>
+    </form>
+    <script src="/js/education.js"></script>
+</body>
+
+</html>
