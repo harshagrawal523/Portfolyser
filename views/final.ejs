@@ -56,31 +56,23 @@ a {
 <body>
 
     <div class="container">
-        <% details.forEach((row,index) => { %>
-            <% if(row.email == user.email){ %> 
                 <div class="header">
-                    <h1 class="username"><%= row.name %> </h1>
+                    <h1 class="username"><%= detail.name %> </h1>
                 </div>
-            <% } %> 
-        <% }) %> 
         <hr class="line">
         <div class="row">
             <div class="col-md-4">
                 <h2>About me</h2>
-                <% details.forEach((row,index) => { %>
-                    <% if(row.email == user.email){ %> 
-                <p><%= row.about %> </p>
-                <% } %> 
-                <% }) %> 
+                <p><%= detail.about %> </p>
                 <h4>Likes:</h4>
                 <p>Your likes.</p>
                 <h4>Dislikes:</h4>
                 <p>Your Dislikes.</p>
                 <h2>Contact & Social Media</h2>
                 <p>
-                    <i class="fas fa-envelope"></i>
-                    <strong>Email: </strong><%= user.email %> 
-                    <br>
+                    <% detail.emails.forEach((row, index) => { %>
+                        <i class="fas fa-envelope"></i> <strong>Email: </strong><%= row %> <br>
+                    <% }) %>
                     <i class="fab fa-twitter-square"></i>
                     <strong>Twitter: </strong><a href="https://twitter.com/twitter">@twitter</a>
                     <br>
@@ -91,11 +83,9 @@ a {
             <div class="col-md-4">
                 <h2>Projects</h2>
                 <ul>
-                    <li><a href="https://github.com/airbnb/MagazineLayout" target="_blank" rel=”noopener noreferrer”>MagazineLayout</a></li>
-                    <li><a href="https://github.com/flutter/flutter" target="_blank" rel=”noopener noreferrer”>flutter</a></li>
-                    <li><a href="https://github.com/NVIDIAGameWorks/PhysX" target="_blank" rel=”noopener noreferrer”>PhysX</a></li>
-                    <li><a href="https://github.com/vuejs/vue" target="_blank" rel=”noopener noreferrer”>vue</a></li>
-                    <li><a href="https://github.com/tensorflow/tensorflow" target="_blank" rel=”noopener noreferrer”>tensorflow</a></li>
+                    <% detail.projects.forEach((row, index) => { %>
+                        <li><a href=" <%= row %> " target="_blank" rel=”noopener noreferrer”>Project <%= (index+1)%> </a></li>
+                    <% }) %>
                 </ul>
             </div>
             <div class="col-md-4">
