@@ -33,8 +33,6 @@ exports.getintroDetails = async (req, res) => {
           res.redirect("/intro");
         }
       });
-      const details = await IntroModel.find();
-      
     } catch (error) {
       console.log(error.message);
     }
