@@ -1,6 +1,7 @@
 const IntroModel = require('../models/intromodel');
 const WorkModel = require('../models/workmodel');
 const EducationModel = require('../models/educationmodel');
+const ProjectModel = require('../models/projectmodel');
 const User = require('../models/user');
 const fs = require('fs');
 exports.getintroDetails = async (req, res) => {
@@ -101,3 +102,21 @@ exports.posteduDetails = async (req, res) => {
     console.log(error.message);
   }
 };
+
+exports.addprojectForm = async (req, res) => {
+  try {
+    return res.render("project", { user: req.user });
+  } catch (err) {
+    console.log(err.message);
+  }
+}
+
+exports.postprojectDetails = async (req, res) => {
+  try {
+    const { project } = req.body;
+    await new ProjectModel({ email: req.user.email, project: project }).save();
+    res.redirect('/');
+  } catch (err) {
+    console.log(err.message);
+  }
+}

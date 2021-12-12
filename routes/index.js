@@ -45,6 +45,8 @@ router.get("/intro", ensureAuthenticated, introController.addintroForm);
 
 router.get("/education", ensureAuthenticated, introController.addeduForm);
 
+router.get("/project", ensureAuthenticated, introController.addprojectForm);
+
 router.post(
   "/",
   upload_company_logo,
@@ -53,5 +55,6 @@ router.post(
 
 router.post("/edu", introController.posteduDetails);
 
+router.post("/project", introController.postprojectDetails);
 
 module.exports = router;
