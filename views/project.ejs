@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>Document</title>
+</head>
+
+<style>
+    /* just basic temporary styling...remove it and write good css */
+    form {
+        padding: 20px;
+    }
+
+    .form-elements {
+        margin-top: 10px;
+    }
+
+    .form-group {
+        margin-left: 13px;
+    }
+
+    .project-wrapper {
+        margin-bottom: 20px;
+    }
+
+    button {
+        margin-top: 10px;
+    }
+</style>
+
+<body>
+    <form class="form-inline" id="project-form" method="POST" action="/project">
+        <h3>Projects</h3>
+        <div class="project-wrapper">
+            <div>
+                <div class="form-group">
+                    <label for="project">Project</label>
+                    <input required type="text" class="form-control" placeholder="Project Link" name="project[]">
+                </div>
+                <div class="form-group">
+                    <a href="javascript:void(0);" class="add-project-button" title="Add field">+ Add More</a>
+                </div>
+            </div>
+        </div>
+        <button class="btn" type="submit">Save</button>
+    </form>
+    <script src="/js/project.js"></script>
+</body>
+
+</html>
