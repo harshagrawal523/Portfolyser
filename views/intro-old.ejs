@@ -30,7 +30,6 @@
         margin: 0;
         padding: 0;
         background-color: rgb(230, 246, 255);
-        font-size: 62.5%;
     }
 
     :root {
@@ -59,7 +58,16 @@
         color: var(--clr-black);
     }
 
+    #primary{
+        padding-top: 8rem;
 
+    }
+
+    main{
+        background-color: rgb(255,255,255);
+        border-radius: 25px;
+        padding: 26px;
+    }
 
     .hero-btn {
         margin-top: 3rem;
@@ -116,30 +124,13 @@
     }
 
 
-    .head {
-        margin-bottom: 2.5rem;
-        font-size: 4.8rem;
-        color: var(--clr-black);
-    }
 
-    #primary{
-        padding-top: 8rem;
-
-    }
-
-    main{
-        background-color: rgb(255,255,255);
-        border-radius: 25px;
-        padding: 26px;
-    }
-
-    
 </style>
 
 <body>
-    <div class="header-in">
-        <div class="navbar-in">
-            <div class="logo-in">
+    <div class="header">
+        <div class="navbar">
+            <div class="logo">
                 <a href="/"><img src="/uploads/logo.png" alt=""></a>
             </div>
             <div id="menu-icon" class="menu-icon"><img id="ham-img" src="uploads/icon-hamburger.svg" alt=""></div>
@@ -193,7 +184,7 @@
         </div>
     </div>
 
-<div id="frm" class="container">
+<div id="frm" class="container1">
     <h3>
         <% if (edit) { %>
             Edit your intro
@@ -276,7 +267,7 @@
           <div class="row g-5">
             <div class="col-md-7 col-lg-8">
               <h4 class="mb-3">user form</h4>
-              <form class="needs-validation work-form" novalidate="" action="/" method="POST" enctype="multipart/form-data">
+              <form class="needs-validation" novalidate="" action="/" method="POST" enctype="multipart/form-data">
                 <div class="row g-3 new_user">
                   <div class="col-sm-6">
                     <label for="name" class="form-label">name</label>

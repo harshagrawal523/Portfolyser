@@ -1,3 +1,11 @@
+<!-- <h1>
+    <%= user.name %> welcome to portfolyser
+</h1> <a href="/final">click here to see final website</a>
+
+<a href="/users/login">Login</a>
+/ <a href="/register">Register</a>
+<a href="/intro">Click here to add introduction</a> -->
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,12 +13,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolyzer</title>
+    <link rel="stylesheet" href="/css/navbar.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <title>Document</title>
-    <link rel="stylesheet" href="/css/navbar.css"
+
 </head>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
 <style>
     /* just basic temporary styling...remove it and write good css */
     form {
@@ -257,36 +268,12 @@ main{
         margin-left: 1rem;
     }
 }
-
 </style>
 
-
-<script src="/docs/5.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-        
-<script src="form-validation.js"></script>
-
-
-<script src="/js/education.js"></script>
-<script>
-const ham = document.getElementById('menu-icon');
-const hamImage = document.querySelector('#ham-img')
-const mediaNav = document.querySelector('.media-nav');
-let dropDown = 0;
-const toggleMenu = () => {
-dropDown = !dropDown;
-dropDown ? mediaNav.style.display = 'flex' : mediaNav.style.display = 'none';
-dropDown ? hamImage.setAttribute('src', 'uploads/icon-close.svg') : hamImage.setAttribute('src', 'uploads/icon-hamburger.svg')
-}
-ham.addEventListener('click', toggleMenu);
-</script>
-
-<body  class="bg-light">
-
-    
-    
-    <div class="header">
-        <div class="navbar">
-            <div class="logo">
+<body>
+    <div class="header-in">
+        <div class="navbar-in">
+            <div class="logo-in">
                 <a href="/"><img src="/uploads/logo.png" alt=""></a>
             </div>
             <div id="menu-icon" class="menu-icon"><img id="ham-img" src="uploads/icon-hamburger.svg" alt=""></div>
@@ -325,7 +312,7 @@ ham.addEventListener('click', toggleMenu);
                     <a href="/about">About</span>
                 </div>
                 <div class="nav-link">
-                    <a href="/scontact">Contact</a>
+                    <a href="/contact">Contact</a>
                 </div>
             </div>
             <div class="line"></div>
@@ -339,117 +326,137 @@ ham.addEventListener('click', toggleMenu);
             </div>
         </div>
     </div>
-    
-        <div class="container">
-          <main id="formcontainer">
-            <!-- <div class="py-5 text-center">
-              <img class="d-block mx-auto mb-4" src="" alt="" width="72" height="57">
-              <h2>Education Details</h2>
-              <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas possimus reiciendis ipsa, velit iure doloremque accusantium eum beatae adipisci ratione laboriosam sed dolorem et quis deleniti explicabo! Nisi, laborum? Nam porro, natus corrupti numquam quaerat unde tempora repudiandae sed suscipit.
-              </p>
-            </div> -->
-            <form id="work-form" class="needs-validation" novalidate="" method="get" action="/edu">
-                <div class="py-5 text-center">
-                    <!-- <img class="d-block mx-auto mb-4" src="" alt="" width="72" height="57"> -->
-                    <h2>Education Details</h2>
-                    <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas possimus reiciendis ipsa, velit iure doloremque accusantium eum beatae adipisci ratione laboriosam sed dolorem et quis deleniti explicabo! Nisi, laborum? Nam porro, natus corrupti numquam quaerat unde tempora repudiandae sed suscipit.
-                    </p>
-                  </div>
-            <div class="row g-5">
-              <div class="col-md-7 col-lg-6">
 
-                    <h3>Work and Experience</h3>
-                    <div class="work-wrapper">
-                        <div>
-                            <div class="form-group">
-                                <label for="company">Company</label>
-                                <input required type="text" class="form-control" placeholder="Company Name" name="company[]">
-                            </div>
-                            <div class="form-group">
-                                <label for="work_description">Work Description</label>
-                                <input required type="text" class="form-control" placeholder="Work Description"
-                                    name="work_description[]">
-                            </div>
-                            <div class="form-group">
-                                <label for="work_start">Work Start</label>
-                                <input required type="date" class="form-control" placeholder="Work Start" name="work_start[]">
-                                <label for="work_end">Work End</label>
-                                <input type="date" class="form-control" placeholder="Work End" name="work_end[]">
-                            </div>
-                            <div class="form-group">
-                                <a href="javascript:void(0);" class="add-work-button" title="Add field">+ Add More</a>
-                            </div>
-                        </div>
-                    </div>
-                    <p>* In case of no work end date, leave it empty</p>
-            
-                    
+    <div class="container">
+     <main id="formcontainer">
+       <!-- <div class="py-5 text-center">
+         <img class="d-block mx-auto mb-4" src="" alt="" width="72" height="57">
+         <h2>Education Details</h2>
+         <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas possimus reiciendis ipsa, velit iure doloremque accusantium eum beatae adipisci ratione laboriosam sed dolorem et quis deleniti explicabo! Nisi, laborum? Nam porro, natus corrupti numquam quaerat unde tempora repudiandae sed suscipit.
+         </p>
+       </div> -->
+       <form id="work-form" class="needs-validation" novalidate="" method="get" action="/edu">
+           <div class="py-5 text-center">
+               <!-- <img class="d-block mx-auto mb-4" src="" alt="" width="72" height="57"> -->
+               <h2>Education Details</h2>
+               <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas possimus reiciendis ipsa, velit iure doloremque accusantium eum beatae adipisci ratione laboriosam sed dolorem et quis deleniti explicabo! Nisi, laborum? Nam porro, natus corrupti numquam quaerat unde tempora repudiandae sed suscipit.
+               </p>
+             </div>
+       <div class="row g-5">
+         <div class="col-md-7 col-lg-6">
 
-              </div>
-            
-              <div class="col-md-7 col-lg-6">
-                    <h3>Education</h3>
-                    <div class="edu-wrapper">
-                        <div>
-                            <div class="form-group">
-                                <label for="university">University</label>
-                                <input required type="text" class="form-control" placeholder="University Name" name="university[]">
-                            </div>
-                            <div class="form-group">
-                                <label for="">Degree</label>
-                                <select required name="degree[]" class="form-control">
-                                    <option value="">--Select Degree--</option>
-                                    <option value="highschool">High School</option>
-                                    <option value="btech">BTech</option>
-                                    <option value="mtech">MTech</option>
-                                    <option value="phd">Phd</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="percentage">Percentage</label>
-                                <input required type="number" max="100.00" step=".01" class="form-control" placeholder="Percentage"
-                                    name="percentage[]">
-                            </div>
-                            <div class="form-group">
-                                <label for="degree_start">Degree Start</label>
-                                <input required type="date" class="form-control" placeholder="Degree Start" name="degree_start[]">
-                                <label for="degree_end">Degree End</label>
-                                <input required type="date" class="form-control" placeholder="Degree End" name="degree_end[]">
-                            </div>
-                            <div class="form-group">
-                                <a href="javascript:void(0);" class="add-edu-button" title="Add field">+ Add More</a>
-                            </div>
-                        </div>
-                    </div>
-                    
-            
-                    
-                
-              </div>
-            </div>
+               <h3>Work and Experience</h3>
+               <div class="work-wrapper">
+                   <div>
+                       <div class="form-group">
+                           <label for="company">Company</label>
+                           <input required type="text" class="form-control" placeholder="Company Name" name="company[]">
+                       </div>
+                       <div class="form-group">
+                           <label for="work_description">Work Description</label>
+                           <input required type="text" class="form-control" placeholder="Work Description"
+                               name="work_description[]">
+                       </div>
+                       <div class="form-group">
+                           <label for="work_start">Work Start</label>
+                           <input required type="date" class="form-control" placeholder="Work Start" name="work_start[]">
+                           <label for="work_end">Work End</label>
+                           <input type="date" class="form-control" placeholder="Work End" name="work_end[]">
+                       </div>
+                       <div class="form-group">
+                           <a href="javascript:void(0);" class="add-work-button" title="Add field">+ Add More</a>
+                       </div>
+                   </div>
+               </div>
+               <p>* In case of no work end date, leave it empty</p>
+       
+               
 
-                    <div class="hero-split">
-                        
-                        <div class="hero-btn">
-                            <a onclick="location.href='/intro'">Submit</a>
-                        </div>
-                        <div class="hero-btn2">
-                            <a onclick="window.top.location.reload(false);" id="reset-btn">Reset</a>
-                        </div>
-                    </div>
-        </form>
-          </main>
-        </div>
-        
+         </div>
+       
+         <div class="col-md-7 col-lg-6">
+               <h3>Education</h3>
+               <div class="edu-wrapper">
+                   <div>
+                       <div class="form-group">
+                           <label for="university">University</label>
+                           <input required type="text" class="form-control" placeholder="University Name" name="university[]">
+                       </div>
+                       <div class="form-group">
+                           <label for="">Degree</label>
+                           <select required name="degree[]" class="form-control">
+                               <option value="">--Select Degree--</option>
+                               <option value="highschool">High School</option>
+                               <option value="btech">BTech</option>
+                               <option value="mtech">MTech</option>
+                               <option value="phd">Phd</option>
+                           </select>
+                       </div>
+                       <div class="form-group">
+                           <label for="percentage">Percentage</label>
+                           <input required type="number" max="100.00" step=".01" class="form-control" placeholder="Percentage"
+                               name="percentage[]">
+                       </div>
+                       <div class="form-group">
+                           <label for="degree_start">Degree Start</label>
+                           <input required type="date" class="form-control" placeholder="Degree Start" name="degree_start[]">
+                           <label for="degree_end">Degree End</label>
+                           <input required type="date" class="form-control" placeholder="Degree End" name="degree_end[]">
+                       </div>
+                       <div class="form-group">
+                           <a href="javascript:void(0);" class="add-edu-button" title="Add field">+ Add More</a>
+                       </div>
+                   </div>
+               </div>
+               
+       
+               
+           
+         </div>
+       </div>
+
+               <div class="hero-split">
+                   
+                   <div class="hero-btn">
+                       <a onclick="location.href='/intro'">Submit</a>
+                   </div>
+                   <div class="hero-btn2">
+                       <a onclick="window.top.location.reload(false);" id="reset-btn">Reset</a>
+                   </div>
+               </div>
+   </form>
+     </main>
+   </div>
+   
 
 <footer class="my-5 pt-5 text-muted text-center text-small">
-    <p class="mb-1">© 2017–2021 Company Name</p>
-    <ul class="list-inline">
-      <li class="list-inline-item"><a href="#">Privacy</a></li>
-      <li class="list-inline-item"><a href="#">Terms</a></li>
-      <li class="list-inline-item"><a href="#">Support</a></li>
-    </ul>
-  </footer>
+<p class="mb-1">© 2017–2021 Company Name</p>
+<ul class="list-inline">
+ <li class="list-inline-item"><a href="#">Privacy</a></li>
+ <li class="list-inline-item"><a href="#">Terms</a></li>
+ <li class="list-inline-item"><a href="#">Support</a></li>
+</ul>
+</footer>
+
+    <script>
+        const ham = document.getElementById('menu-icon');
+        const hamImage = document.querySelector('#ham-img')
+        const mediaNav = document.querySelector('.media-nav');
+        let dropDown = 0;
+        const toggleMenu = () => {
+            dropDown = !dropDown;
+            dropDown ? mediaNav.style.display = 'flex' : mediaNav.style.display = 'none';
+            dropDown ? hamImage.setAttribute('src', 'uploads/icon-close.svg') : hamImage.setAttribute('src', 'uploads/icon-hamburger.svg')
+        }
+        ham.addEventListener('click', toggleMenu);
+    </script>
 </body>
+
+<script src="/docs/5.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+        
+<script src="form-validation.js"></script>
+
+
+<script src="/js/education.js"></script>
 
 </html>

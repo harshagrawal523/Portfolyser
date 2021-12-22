@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/navbar.css">
+</head>
+<style>
+    /* just basic temporary styling...remove it and write good css */
+    form {
+        padding: 20px;
+        /* display: block; */
+        padding-top: 10rem;
+    }
+
+    .form-elements {
+        margin-top: 10px;
+    }
+
+    .form-group {
+        margin-left: 13px;
+    }
+
+    .work_wrapper {
+        margin-bottom: 20px;
+    }
+
+    button {
+        margin-top: 10px;
+    }
+
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+*,
+:after,
+:before {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+:root {
+    --clr-black: #010334;
+}
+
+body {
+    background-color: #E6F6FF;
+    font-family: 'Poppins', sans-serif;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* Hero */
+
+.head {
+    margin-bottom: 2.5rem;
+    font-size: 4.8rem;
+    color: var(--clr-black);
+}
+
+p {
+    font-size: 16px;
+    color: #414141;
+}
+
+.blue-feature {
+    color: #01a2ff;
+    margin-top: 1.6rem;
+    font-size: 1.6rem;
+}
+
+.black-feature {
+    color: var(--clr-black);
+    margin-top: 1.6rem;
+    font-size: 1.6rem;
+}
+
+.hero-container {
+    padding: 0 max(4rem, 2vw);
+    margin: 18rem auto 0;
+    min-height: calc(100vh - 18rem);
+    margin-top: 8rem;
+}
+
+.hero-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: row;
+}
+
+.hero-split {
+    /* flex-basis: 50%; */
+    display: flex;
+    max-width: 30rem;
+    padding: 2rem;
+}
+
+.hero-split img {
+    width: 100%;
+}
+
+.hero-btn {
+    margin-top: 3rem;
+    width: 100%;
+}
+
+.hero-btn a {
+    width: 100%;
+    padding: 11.2px 25px 10.8px;
+    border-radius: 4rem;
+    font-size: 1.4rem;
+    background-color: #c6e9e5;
+    color: #4c9e9e;
+    font-weight: 500;
+}
+    .hero-btn2 {
+    margin-top: 3rem;
+    width: 100%;
+}
+.hero-btn2 a {
+    width: 100%;
+    padding: 11.2px 25px 10.8px;
+    border-radius: 4rem;
+    font-size: 1.4rem;
+    background-color: #c6cde9;
+    color: #5e4c9e;
+    font-weight: 500;
+}
+
+
+.hero-btn2 {
+    margin-top: 3rem;
+    width: 100%;
+}
+
+.hero-btn2 a {
+    width: 100%;
+    padding: 11.2px 25px 10.8px;
+    border-radius: 4rem;
+    font-size: 1.4rem;
+    background-color: #c6cde9;
+    color: #5e4c9e;
+    font-weight: 500;
+}
+
+
+@media (max-width: 992px) {
+    .hero-wrapper {
+        flex-direction: column;
+    }
+
+    .blue-feature,
+    .black-feature,
+    .hero-btn,
+    .hero-btn2,
+    .head {
+        text-align: center;
+    }
+
+    .hero-img {
+        margin-top: 3rem;
+    }
+}
+
+/* Working steps */
+
+.working-container {
+    padding: 5rem max(4rem, 2vw);
+    background: #fff;
+}
+
+.working-wrapper {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.working-split {
+    padding: 2rem 3rem;
+    flex-basis: 50%;
+    max-width: 45rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.working-heading-lg {
+    font-size: 3rem;
+    font-weight: 600;
+    line-height: 4rem;
+    text-align: center;
+    color: var(--clr-black);
+    text-transform: capitalize;
+}
+
+.working-heading-sm {
+    color: var(--clr-black);
+    text-align: center;
+    font-size: 1.5rem;
+    margin-top: 1rem;
+}
+
+.step {
+    font-size: 1.4rem;
+    letter-spacing: 0.1px;
+    margin: 0.5rem 0;
+    counter-increment: step;
+}
+
+footer{
+    padding-top: 4rem;
+}
+
+
+main{
+        background-color: rgb(255,255,255);
+        border-radius: 25px;
+        /* padding: 26px; */
+        position: relative;
+    top: 10rem;
+    }
+
+.step::before {
+    color: #2156fa;
+    content: counter(step) ". ";
+    display: inline-block;
+    font-weight: 500;
+    height: 20px;
+    line-height: 20px;
+    margin-left: -28px;
+    margin-right: 8px;
+    text-align: center;
+    width: 20px;
+}
+
+@media(max-width: 1000px) {
+    .working-wrapper {
+        flex-direction: column;
+    }
+
+    .step {
+        margin-left: 1rem;
+    }
+}
+
+</style>
+
+
+<script src="/docs/5.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+        
+<script src="form-validation.js"></script>
+
+
+<script src="/js/education.js"></script>
+<script>
+const ham = document.getElementById('menu-icon');
+const hamImage = document.querySelector('#ham-img')
+const mediaNav = document.querySelector('.media-nav');
+let dropDown = 0;
+const toggleMenu = () => {
+dropDown = !dropDown;
+dropDown ? mediaNav.style.display = 'flex' : mediaNav.style.display = 'none';
+dropDown ? hamImage.setAttribute('src', 'uploads/icon-close.svg') : hamImage.setAttribute('src', 'uploads/icon-hamburger.svg')
+}
+ham.addEventListener('click', toggleMenu);
+</script>
+
+<body  class="bg-light">
+
+    
+    
+    <div class="header">
+        <div class="navbar">
+            <div class="logo">
+                <a href="/"><img src="/uploads/logo.png" alt=""></a>
+            </div>
+            <div id="menu-icon" class="menu-icon"><img id="ham-img" src="uploads/icon-hamburger.svg" alt=""></div>
+            <div class="nav-links">
+                <div class="nav-link">
+                    <a href="/">Home</a>
+                </div>
+                <div class="nav-link">
+                    <a href="/about">About</span>
+                </div>
+                <div class="nav-link">
+                    <a href="/contact">Contact</a>
+                </div>
+            </div>
+            <div class="nav-user">
+                <% if(user){ %> 
+                    <div class="nav-link">
+                        <a href="/users/logout">Logout</a>
+                    </div>
+                <% }else{ %> 
+                <div class="nav-link">
+                    <a href="/login">Login</a>
+                </div>
+                <div class="nav-link">
+                    <a href="/register">Sign Up</a>
+                </div>
+                <% } %> 
+            </div>
+        </div>
+        <div class="media-nav">
+            <div class="media-nav-links">
+                <div class="nav-link">
+                    <a href="/">Home</a>
+                </div>
+                <div class="nav-link">
+                    <a href="/about">About</span>
+                </div>
+                <div class="nav-link">
+                    <a href="/scontact">Contact</a>
+                </div>
+            </div>
+            <div class="line"></div>
+            <div class="media-nav-user">
+                <div class="nav-link">
+                    <a href="/login">Login</a>
+                </div>
+                <div class="nav-link">
+                    <a href="/register">Sign Up</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+        <div class="container">
+          <main id="formcontainer">
+            <!-- <div class="py-5 text-center">
+              <img class="d-block mx-auto mb-4" src="" alt="" width="72" height="57">
+              <h2>Education Details</h2>
+              <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas possimus reiciendis ipsa, velit iure doloremque accusantium eum beatae adipisci ratione laboriosam sed dolorem et quis deleniti explicabo! Nisi, laborum? Nam porro, natus corrupti numquam quaerat unde tempora repudiandae sed suscipit.
+              </p>
+            </div> -->
+            <form id="work-form" class="needs-validation" novalidate="" method="get" action="/edu">
+                <div class="py-5 text-center">
+                    <!-- <img class="d-block mx-auto mb-4" src="" alt="" width="72" height="57"> -->
+                    <h2>Education Details</h2>
+                    <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas possimus reiciendis ipsa, velit iure doloremque accusantium eum beatae adipisci ratione laboriosam sed dolorem et quis deleniti explicabo! Nisi, laborum? Nam porro, natus corrupti numquam quaerat unde tempora repudiandae sed suscipit.
+                    </p>
+                  </div>
+            <div class="row g-5">
+              <div class="col-md-7 col-lg-6">
+
+                    <h3>Work and Experience</h3>
+                    <div class="work-wrapper">
+                        <div>
+                            <div class="form-group">
+                                <label for="company">Company</label>
+                                <input required type="text" class="form-control" placeholder="Company Name" name="company[]">
+                            </div>
+                            <div class="form-group">
+                                <label for="work_description">Work Description</label>
+                                <input required type="text" class="form-control" placeholder="Work Description"
+                                    name="work_description[]">
+                            </div>
+                            <div class="form-group">
+                                <label for="work_start">Work Start</label>
+                                <input required type="date" class="form-control" placeholder="Work Start" name="work_start[]">
+                                <label for="work_end">Work End</label>
+                                <input type="date" class="form-control" placeholder="Work End" name="work_end[]">
+                            </div>
+                            <div class="form-group">
+                                <a href="javascript:void(0);" class="add-work-button" title="Add field">+ Add More</a>
+                            </div>
+                        </div>
+                    </div>
+                    <p>* In case of no work end date, leave it empty</p>
+            
+                    
+
+              </div>
+            
+              <div class="col-md-7 col-lg-6">
+                    <h3>Education</h3>
+                    <div class="edu-wrapper">
+                        <div>
+                            <div class="form-group">
+                                <label for="university">University</label>
+                                <input required type="text" class="form-control" placeholder="University Name" name="university[]">
+                            </div>
+                            <div class="form-group">
+                                <label for="">Degree</label>
+                                <select required name="degree[]" class="form-control">
+                                    <option value="">--Select Degree--</option>
+                                    <option value="highschool">High School</option>
+                                    <option value="btech">BTech</option>
+                                    <option value="mtech">MTech</option>
+                                    <option value="phd">Phd</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="percentage">Percentage</label>
+                                <input required type="number" max="100.00" step=".01" class="form-control" placeholder="Percentage"
+                                    name="percentage[]">
+                            </div>
+                            <div class="form-group">
+                                <label for="degree_start">Degree Start</label>
+                                <input required type="date" class="form-control" placeholder="Degree Start" name="degree_start[]">
+                                <label for="degree_end">Degree End</label>
+                                <input required type="date" class="form-control" placeholder="Degree End" name="degree_end[]">
+                            </div>
+                            <div class="form-group">
+                                <a href="javascript:void(0);" class="add-edu-button" title="Add field">+ Add More</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+            
+                    
+                
+              </div>
+            </div>
+
+                    <div class="hero-split">
+                        
+                        <div class="hero-btn">
+                            <a onclick="location.href='/intro'">Submit</a>
+                        </div>
+                        <div class="hero-btn2">
+                            <a onclick="window.top.location.reload(false);" id="reset-btn">Reset</a>
+                        </div>
+                    </div>
+        </form>
+          </main>
+        </div>
+        
+
+<footer class="my-5 pt-5 text-muted text-center text-small">
+    <p class="mb-1">© 2017–2021 Company Name</p>
+    <ul class="list-inline">
+      <li class="list-inline-item"><a href="#">Privacy</a></li>
+      <li class="list-inline-item"><a href="#">Terms</a></li>
+      <li class="list-inline-item"><a href="#">Support</a></li>
+    </ul>
+  </footer>
+</body>
+
+</html>

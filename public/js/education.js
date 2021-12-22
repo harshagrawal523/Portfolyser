@@ -92,3 +92,12 @@ $(document).ready(function () {
         x--;
     });
 });
+
+// $('reset-btn').click(function() {
+//     location.reload();
+// });
+
+// function reset_edu(){    
+//     // document.getElementById("work-form").reset();
+//     window.location.reload();
+// }
