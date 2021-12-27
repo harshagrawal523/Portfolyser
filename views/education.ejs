@@ -23,77 +23,265 @@
     .form-group {
         margin-left: 13px;
     }
+    *, :after :before {
+    box-sizing: border-box;
+    padding: 80px;
+    margin: 0;
+}
+html {
+    scroll-behavior: smooth;
+   }
+.form{
+    display:block;
+    margin-top: 0em;
+    width: 50%;
+}
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    padding-top: 40px;
+    border: inherit;
+}
+.header{
+    text-align: center;
+    height: 80px;
+    font-weight: 100;
+}
+.navbar{
+    text-align: right;
+    text-transform: none;
 
-    .work_wrapper {
-        margin-bottom: 20px;
+}
+.nav-link{
+    float: inline-end;
+    margin-right: 400px;
+    word-spacing: 6px;
+}
+.container{
+    padding: unset;
+    margin: 40px;
+    position: relative;
+}
+.column {
+    float: left;
+    width: 50%;
+    height: 300px;
+    padding-bottom: 150px;
+}
+.row::after{
+    content: "";
+    display: table;
+    clear: both;
+}
+@media only screen and (max-width: 1024px){
+    .column{
+        width: 100%;
+        height: auto;
     }
+    .work {
+        text-align: left;
+    }
+    .work-wrapper,
+    .add-work-button {
+        text-align: left;
+        position: relative;
+    }
+}
+.work-wrapper{
+    text-align: justify;
+    position: relative;
+    padding-left: 225pt;
+    padding-right: 0pt;
+    padding-inline-start: 96px;
+    word-spacing: 0.2rem;
+    height: 220px;
+    line-height: 278%;
+    font-size: large;
+    justify-content: space-evenly;
+}
+.edu-wrapper{
+    text-align: justify;
+    padding-left: 225pt;
+    padding-right: 0pt;
+    padding-inline-start: 103px;
+    padding-block-end: 100px;
+    word-spacing: 0.2rem;
+    height: 200px;
+    line-height: 278%;
+    font-size: large;
+    justify-content: space-evenly;
+}
+input[type=text],
+input[type=date],
+input[type=number],
+select {
+    border: 2px solid lavender;
+    border-top-width: 2px;
+    border-right-width: 2px;
+    border-bottom-width: 2px;
+    border-left-width: 2px;
+    width: 320px;
+    height: 32px;
+    border-radius: 32px;
+}
+input {
+    text-rendering: auto;
+    color: -internal-light-dark(black, white);
+    letter-spacing: normal;
+    word-spacing: normal;
+    line-height: normal;
+    text-transform: none;
+    text-indent: 2px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+    appearance: auto;
+    -webkit-rtl-ordering: logical;
+    cursor: text;
+    background-color: -internal-light-dark(rgb(255, 255, 255), rgb(59, 59, 59));
+    margin: 0em;
+}
+h3 {
+    font-size: xx-large;
+    padding-right: 400px;
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+.work{
+    padding-left: 80px;
+    padding-right: 140px;
+}
+.education{
+    padding-right: 429px;
+    padding-left: 106px;
+    margin-left: 30px;
+}
+.add-work-button,
+.add-edu-button {
+    font-size: small;
+}
+p {
+    font-size: unset;
+    padding-top: 80px;
+    padding-right: 200px;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+.btn-submit,
+.btn-reset {
+    text-align: center;
+    background-color: rgb(34, 31, 212);
+    cursor: pointer;
+    height: 30px;
+    width: 80px;
+    padding-top: 7px;
+    padding-right: 6px;
+    padding-bottom: 23px;
+    padding-left: 6px;
+    margin-top: 10%;
+    border-width: 2px;
+    border-style: outset;
+    border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
+    border-image: initial;
+    appearance: normal;
+    align-items: flex-start;
+}
+.btn-submit:hover {
+    background-color: rgb(10, 33, 133);
+}
+.btn-reset:hover {
+    background-color: rgb(10, 33, 133);
+}
 
-    button {
-        margin-top: 10px;
-    }
 </style>
 
 <body>
-    <form class="form-inline" id="work-form" method="POST" action="/edu">
-        <h3>Work and Experience</h3>
-        <div class="work-wrapper">
-            <div>
-                <div class="form-group">
-                    <label for="company">Company</label>
-                    <input required type="text" class="form-control" placeholder="Company Name" name="company[]">
-                </div>
-                <div class="form-group">
-                    <label for="work_description">Work Description</label>
-                    <input required type="text" class="form-control" placeholder="Work Description"
-                        name="work_description[]">
-                </div>
-                <div class="form-group">
-                    <label for="work_start">Work Start</label>
-                    <input required type="date" class="form-control" placeholder="Work Start" name="work_start[]">
-                    <label for="work_end">Work End</label>
-                    <input type="date" class="form-control" placeholder="Work End" name="work_end[]">
-                </div>
-                <div class="form-group">
-                    <a href="javascript:void(0);" class="add-work-button" title="Add field">+ Add More</a>
-                </div>
+    <form class="form-container" id="work-form"  method="POST" action="/edu">
+        <div class="header">
+            <h1>WORK/EDUCATION DETAILS</h1>
+        </div>
+        <div class="navbar">
+            <div class="nav-link">
+                <a href="#Home" target="_blank">Home</a>
+                <a href="#About us" target="_blank">About us</a>
+                <a href="#Contac us"target="blank">Contact us</a>
             </div>
         </div>
-        <p>* In case of no work end date, leave it empty</p>
-
-        <h3>Education</h3>
-        <div class="edu-wrapper">
-            <div>
-                <div class="form-group">
-                    <label for="university">University</label>
-                    <input required type="text" class="form-control" placeholder="University Name" name="university[]">
+        <div class="container">
+            <div class="row">
+                <div class="column">
+                    <h3 class="work">Work Experience</h3>
+                    <div class="work-wrapper">
+                        <div>
+                            <div class="form-group">
+                                <label for="Company">Company</label>
+                                <input type="text" class="form-control" name="company[]" placeholder="Company Name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="Work Description">Work-Description</label>
+                                <input type="text" class="form-control" name="work_description[]" placeholder="Work Description" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="Work-Start">Work-Start</label>
+                                <input type="date" class="form-control" name="work_start[]" placeholder="Work Start">
+                            </div>
+                            <div class="form-group">
+                                <label for="Work-End">Work-End</label>
+                                <input type="date" class="form-control" name="work_end[]" placeholder="Work End">
+                            </div>
+                            <div class="form-group">
+                                <a href="javascript:void(0);" class="add-work-button" title="Add field">+ Add More</a>
+                            </div>
+                        </div>
+                    </div>
+                    <p>* In case of no work end date, leave it empty</p>
                 </div>
-                <div class="form-group">
-                    <label for="">Degree</label>
-                    <select required name="degree[]" class="form-control">
-                        <option value="">--Select Degree--</option>
-                        <option value="highschool">High School</option>
-                        <option value="btech">BTech</option>
-                        <option value="mtech">MTech</option>
-                        <option value="phd">Phd</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="percentage">Percentage</label>
-                    <input required type="number" max="100.00" step=".01" class="form-control" placeholder="Percentage"
-                        name="percentage[]">
-                </div>
-                <div class="form-group">
-                    <label for="degree_start">Degree Start</label>
-                    <input required type="date" class="form-control" placeholder="Degree Start" name="degree_start[]">
-                    <label for="degree_end">Degree End</label>
-                    <input required type="date" class="form-control" placeholder="Degree End" name="degree_end[]">
-                </div>
-                <div class="form-group">
-                    <a href="javascript:void(0);" class="add-edu-button" title="Add field">+ Add More</a>
+                <div class="column">
+                    <h3 class="education">Education</h3>
+                    <div class="edu-wrapper">
+                        <div>
+                            <div class="form-group">
+                                <label for="University">University</label>
+                                <input type="text" class="form-control" name="university[]" placeholder="University Name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="">Degree</label>
+                                <select name="degree[]" class="form-control" required>
+                                    <option value="">--Select Degree--</option>
+                                    <option value="highschool">High School</option>
+                                    <option value="btech">Btech</option>
+                                    <option value="mtech">Mtech</option>
+                                    <option value="phd">Phd</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="percentage">Percentage</label>
+                                <input type="number" class="form-control" name="percentage[]" max="100.00" step=".01" placeholder="Percentage" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="degree_start">Degree-Start</label>
+                                <input type="date" class="form-control" name="degree_start[]" placeholder="Degree Start" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="degree_end">Degree-End</label>
+                                <input type="date" class="form-control" name="degree_end[]" placeholder="Degree End" required>
+                            </div>
+                            <div class="form-group">
+                                <a href="javascript:void(0);" class="add-edu-button" title="Add field">+ Add More</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
+            <button type="button" class="btn btn-submit">Submit</button>
+            <button type="button" class="btn btn-reset">Reset</button>
         </div>
-        <button type="submit">Save</button>
     </form>
     <script src="/js/education.js"></script>
 </body>
