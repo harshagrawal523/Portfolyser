@@ -1,4 +1,4 @@
-.header {
+.header-in {
   position: fixed;
   background: #fff;
   width: 100%;
@@ -8,24 +8,24 @@
   padding: 1rem 0;
 }
 
-.logo {
+.logo-in {
   margin-left: 4rem;
 }
 
-.navbar {
+.navbar-in {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.logo a {
+.logo-in a {
   color: #4c9e9e;
   cursor: pointer;
   font-weight: 600;
   width: 12rem;
 }
 
-.logo a img {
+.logo-in a img {
   width: inherit;
 }
 
