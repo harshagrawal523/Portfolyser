@@ -1,0 +1,21 @@
+.container {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+input[type=text],
+input[type=date],
+input[type=number]
+ {
+    border: 2px solid lavender;
+    border-radius: 32px;
+}
+.form-select {
+    border: 2px solid lavender;
+    border-radius: 32px;
+}
+@media only screen and (max-width: 768px) {
+    .education-section {
+      margin-top: 40px;
+    }
+  }
