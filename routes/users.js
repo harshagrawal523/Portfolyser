@@ -30,6 +30,12 @@ router.get('/twitter/callback',
                 successRedirect : '/',
                 failureRedirect : '/users/login'
             }));
+router.get('/github', passport.authenticate('github'));
+router.get('/github/callback',
+            passport.authenticate('github', {
+                successRedirect : '/',
+                failureRedirect : '/users/login'
+            }));
 //Register handle
 router.post('/login',(req,res,next)=>{
 passport.authenticate('local',{
