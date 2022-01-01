@@ -17,6 +17,19 @@ router.get('/google/callback',
                     successRedirect : '/',
                     failureRedirect : '/users/login'
             }));
+//Facebook
+router.get('/facebook', passport.authenticate('facebook'));
+router.get('/facebook/callback',
+            passport.authenticate('facebook', {
+                successRedirect : '/',
+                failureRedirect : '/users/login'
+            }));
+router.get('/twitter', passport.authenticate('twitter'));
+router.get('/twitter/callback',
+            passport.authenticate('twitter', {
+                successRedirect : '/',
+                failureRedirect : '/users/login'
+            }));
 //Register handle
 router.post('/login',(req,res,next)=>{
 passport.authenticate('local',{
