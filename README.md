@@ -25,6 +25,16 @@ A portfolio website generator. You can enter your details and it will provide yo
         MONGO_URI= <your mongodb url for connection>
         clientId= <your clientId>
         clientSecret = <your clientSecret>
+        clientId_google = 
+        clientSecret_google = 
+        clientId_facebook = 
+        clientSecret_facebook = 
+        apikey_twitter = 
+        apisecret_twitter = 
+        clientId_github = 
+        clientSecret_github = 
+        clientId_discord = 
+        clientSecret_discord = 
         
   If you don't have your own clientId's , you can text me on discord I will send you mine.
 
