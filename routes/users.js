@@ -36,6 +36,12 @@ router.get('/github/callback',
                 successRedirect : '/',
                 failureRedirect : '/users/login'
             }));
+router.get('/discord', passport.authenticate('discord'));
+router.get('/discord/callback',
+            passport.authenticate('discord', {
+                successRedirect : '/',
+                failureRedirect : '/users/login'
+            }));
 //Register handle
 router.post('/login',(req,res,next)=>{
 passport.authenticate('local',{
