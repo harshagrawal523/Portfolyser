@@ -17,28 +17,9 @@ router.get('/google/callback',
                     successRedirect : '/',
                     failureRedirect : '/users/login'
             }));
-//Facebook
-router.get('/facebook', passport.authenticate('facebook'));
-router.get('/facebook/callback',
-            passport.authenticate('facebook', {
-                successRedirect : '/',
-                failureRedirect : '/users/login'
-            }));
-router.get('/twitter', passport.authenticate('twitter'));
-router.get('/twitter/callback',
-            passport.authenticate('twitter', {
-                successRedirect : '/',
-                failureRedirect : '/users/login'
-            }));
 router.get('/github', passport.authenticate('github'));
 router.get('/github/callback',
             passport.authenticate('github', {
-                successRedirect : '/',
-                failureRedirect : '/users/login'
-            }));
-router.get('/discord', passport.authenticate('discord'));
-router.get('/discord/callback',
-            passport.authenticate('discord', {
                 successRedirect : '/',
                 failureRedirect : '/users/login'
             }));
