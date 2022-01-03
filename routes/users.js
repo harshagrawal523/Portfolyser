@@ -5,11 +5,19 @@ const bcrypt = require('bcrypt');
 const passport = require('passport');
 //login handle
 router.get('/login',(req,res)=>{
-    res.render('login');
+    if (req.isAuthenticated()) {
+        res.redirect("/");
+    } else {
+        res.render('login');
+    }
 })
 router.get('/register',(req,res)=>{
-    res.render('register')
-    })
+    if (req.isAuthenticated()) {
+        res.redirect("/");
+    } else {
+        res.render('register')
+    }
+})
 //Google
 router.get('/google', passport.authenticate('google', { scope : ['profile', 'email'] }));
 router.get('/google/callback',
