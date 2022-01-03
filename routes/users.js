@@ -81,8 +81,13 @@ passport.authenticate('local',{
                     .then((value)=>{
                         console.log(value)
                         req.flash('success_msg','You have now registered!');
-                        res.redirect('/users/login');
-                        
+                        passport.authenticate('local',{
+                            successRedirect : '/',
+                            failureRedirect: '/users/login',
+                            failureFlash : true
+                        })(req,res, function () {
+                            res.redirect('/');
+                        })
                     })
                     .catch(value=> console.log(value));
                       
